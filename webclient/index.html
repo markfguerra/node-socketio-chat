@@ -23,6 +23,11 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 	  var socket = io();
+
+	  // Listener for Send button
+	  $('form').submit(function(){
+	  	alert("User hit send button");
+	  });
 	</script>
   </body>
 </html>
