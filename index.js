@@ -12,6 +12,8 @@ io.on('connection', function(socket){
   // Listener for 'chat message' events from the front-end
   socket.on('chat message', function(msg){
     console.log('Message sent from front-end: ' + msg);
+
+    io.emit('chat message', msg);
   });
 });
 
