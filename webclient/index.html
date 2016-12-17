@@ -43,6 +43,12 @@
 	  	// Prevent the submit event from reaching the default submit action
 	  	return false;
 	  });
-	</script>
+
+      // Listener for receiving a chat message from the server
+      socket.on('chat message', function(msg) {
+        // Add a new message to the list of messages
+        $('#messages').append($('<li>').text(msg));
+      });
+    </script>
   </body>
 </html>
