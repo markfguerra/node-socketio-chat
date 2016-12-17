@@ -26,7 +26,19 @@
 
 	  // Listener for Send button
 	  $('form').submit(function(){
-	  	alert("User hit send button");
+	  	// Selector for the text input box
+	  	var inputBoxSel = '#m'; 
+	  	
+	  	// Text from the input box
+	  	var messageText = $(inputBoxSel).val();
+	  	
+	  	// Send message to the server.
+	  	// Sends an event called 'chat message' containing the messageText
+	  	// Instead of messageText, we could opt to send objects.
+	  	socket.emit('chat message', messageText);
+
+	  	//Clear messageText input box
+	  	$(inputBoxSel).val('');
 
 	  	// Prevent the submit event from reaching the default submit action
 	  	return false;
