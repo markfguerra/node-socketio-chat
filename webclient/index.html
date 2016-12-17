@@ -21,28 +21,28 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-	<script>
-	  var socket = io();
+    <script>
+      var socket = io();
 
-	  // Listener for Send button
-	  $('form').submit(function(){
-	  	// Selector for the text input box
-	  	var inputBoxSel = '#m'; 
-	  	
-	  	// Text from the input box
-	  	var messageText = $(inputBoxSel).val();
-	  	
-	  	// Send message to the server.
-	  	// Sends an event called 'chat message' containing the messageText
-	  	// Instead of messageText, we could opt to send objects.
-	  	socket.emit('chat message', messageText);
+      // Listener for Send button
+      $('form').submit(function(){
+        // Selector for the text input box
+        var inputBoxSel = '#m';
+        
+        // Text from the input box
+        var messageText = $(inputBoxSel).val();
+        
+        // Send message to the server.
+        // Sends an event called 'chat message' containing the messageText
+        // Instead of messageText, we could opt to send objects.
+        socket.emit('chat message', messageText);
 
-	  	//Clear messageText input box
-	  	$(inputBoxSel).val('');
+        // Clear messageText input box
+        $(inputBoxSel).val('');
 
-	  	// Prevent the submit event from reaching the default submit action
-	  	return false;
-	  });
+        // Prevent the submit event from reaching the default submit action
+        return false;
+      });
 
       // Listener for receiving a chat message from the server
       socket.on('chat message', function(msg) {
