@@ -8,6 +8,11 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   console.log('A user connected via Socket.IO');
+
+  // Listener for 'chat message' events from the front-end
+  socket.on('chat message', function(msg){
+    console.log('Message sent from front-end: ' + msg);
+  });
 });
 
 http.listen(3000, function(){
