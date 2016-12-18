@@ -7,7 +7,7 @@
     <link href="./css/sticky-footer.css" rel="stylesheet">
   </head>
   <body>
-    <ul id="messages"></ul>
+    <ul id="messages" class="list-group"></ul>
     <footer class="footer">
       <form action="">
         <div class="input-group input-group-lg">
@@ -58,7 +58,7 @@
 
       chatApi.onMessageReceived(function(messageText) {
         // Add a new message to the list of messages
-        $('#messages').append($('<li>').text(messageText));
+        $('#messages').append($('<li class="list-group-item">').text(messageText));
       });
 
       // Listener for Send button
