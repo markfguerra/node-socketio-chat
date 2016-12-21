@@ -63,8 +63,18 @@
       })();
 
       chatApi.onMessageReceived(function(messageText) {
+        // todo: learn why these types of operations are expensive and how to
+        // mitigate those expenses;
         // Add a new message to the list of messages
         $('#messages').append($('<li class="list-group-item">').text(messageText));
+        
+        var $viewport = $('.viewport')[0];
+        var scrollTop = $viewport.scrollTop;
+        var scrollHeight = $viewport.scrollHeight;
+        var viewportHeight = $viewport.clientHeight;
+        if(scrollHeight -  scrollTop - viewportHeight <= 200) {
+          $viewport.scrollTop = scrollHeight;
+        }
       });
 
       // Listener for Send button
