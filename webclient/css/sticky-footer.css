@@ -1,19 +1,21 @@
-/* Sticky footer styles
+/* 
+Sticky footer styles
 Source: http://getbootstrap.com/examples/sticky-footer/sticky-footer.css
--------------------------------------------------- */
+-------------------------------------------------- 
+*/
 html {
-  position: relative;
   min-height: 100%;
+  position: relative;
 }
 body {
   /* Margin bottom by footer height */
   margin-bottom: 50px;
 }
 .footer {
-  position: absolute;
+  background-color: #f5f5f5;
   bottom: 0;
-  width: 100%;
   /* Set the fixed height of the footer here */
   height: 50px;
-  background-color: #f5f5f5;
+  position: absolute;
+  width: 100%;
 }
