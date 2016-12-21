@@ -4,11 +4,15 @@
   "description": "A chat and team coordination app and server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:lint": "csslint --format=compact ."
   },
   "author": "Mark Guerra",
   "dependencies": {
     "express": "^4.14.0",
     "socket.io": "^1.7.2"
+  },
+  "devDependencies": {
+    "csslint": "^1.0.5"
   }
 }
