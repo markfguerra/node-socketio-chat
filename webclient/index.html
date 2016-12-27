@@ -67,7 +67,9 @@
         // mitigate those expenses;
         // Add a new message to the list of messages
         $('#messages').append($('<li class="list-group-item">').text(messageText));
-        
+
+        // Scroll the chat view to the bottom so the last message is shown,
+        // if the user is already scrolled to the bottom or is fairly close.
         var $viewport = $('.viewport')[0];
         var scrollTop = $viewport.scrollTop;
         var scrollHeight = $viewport.scrollHeight;
