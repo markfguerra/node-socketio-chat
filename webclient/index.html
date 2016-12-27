@@ -4,20 +4,26 @@
     <title>Socket.IO chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="./css/sticky-footer.css" rel="stylesheet">
+    <link href="./css/app.css" rel="stylesheet">
+    <link href="./css/conversation.css" rel="stylesheet">
   </head>
   <body>
-    <ul id="messages" class="list-group"></ul>
-    <footer class="footer">
-      <form action="">
-        <div class="input-group input-group-lg">
-          <input id="m" type="text" class="form-control" autocomplete="off" placeholder="Say something..."/>
-          <span class="input-group-btn">
-            <button class="btn-primary btn-lg">Send</button>
-          </span>
-        </div>
-      </form>
-    </footer>
+    <div class="container conversation">
+      
+      <div class="viewport">
+        <ul id="messages" class="list-group"></ul>
+      </div>
+      <div class="composer">
+        <form class="form-group">
+          <div class="input-group input-group-lg">
+            <input id="message" type="text" class="form-control" autocomplete="off" placeholder="Say something..."/>
+            <span class="input-group-btn">
+              <button class="btn-primary btn-lg">Send</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -57,14 +63,27 @@
       })();
 
       chatApi.onMessageReceived(function(messageText) {
+        // todo: learn why these types of operations are expensive and how to
+        // mitigate those expenses;
         // Add a new message to the list of messages
         $('#messages').append($('<li class="list-group-item">').text(messageText));
+
+        // Scroll the chat view to the bottom so the last message is shown,
+        // if the user is already scrolled to the bottom or is fairly close.
+        var $viewport = $('.viewport')[0];
+        var scrollTop = $viewport.scrollTop;
+        var scrollHeight = $viewport.scrollHeight;
+        var viewportHeight = $viewport.clientHeight;
+        var thresh = 100;
+        if(scrollHeight -  scrollTop - viewportHeight <= thresh) {
+          $viewport.scrollTop = scrollHeight;
+        }
       });
 
       // Listener for Send button
       $('form').submit(function(){
         // Selector for the text input box
-        var inputBoxSel = '#m';
+        var inputBoxSel = '#message';
         
         // Text from the input box
         var messageText = $(inputBoxSel).val();
