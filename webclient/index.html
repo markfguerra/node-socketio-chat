@@ -74,7 +74,8 @@
         var scrollTop = $viewport.scrollTop;
         var scrollHeight = $viewport.scrollHeight;
         var viewportHeight = $viewport.clientHeight;
-        if(scrollHeight -  scrollTop - viewportHeight <= 200) {
+        var thresh = 200;
+        if(scrollHeight -  scrollTop - viewportHeight <= thresh) {
           $viewport.scrollTop = scrollHeight;
         }
       });
