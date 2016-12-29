@@ -1,4 +1,6 @@
 var chatApi = require("./chatApi");
+require("!style!css!../css/app.css");
+require("!style!css!../css/conversation.css");
 
 chatApi.onMessageReceived(function(messageText) {
 	// todo: learn why these types of operations are expensive and how to
