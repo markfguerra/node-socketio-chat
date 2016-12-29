@@ -1,3 +1,5 @@
+var chatApi = require("./chatApi");
+
 chatApi.onMessageReceived(function(messageText) {
 	// todo: learn why these types of operations are expensive and how to
 	// mitigate those expenses;
