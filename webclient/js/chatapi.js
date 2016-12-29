@@ -30,3 +30,5 @@ var chatApi = (function() {
 		}
 	};
 })();
+
+module.exports = chatApi;
