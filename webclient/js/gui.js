@@ -1,4 +1,5 @@
 var chatApi = require("./chatApi");
+var $ = require("jquery");
 require("!style!css!../css/app.css");
 require("!style!css!../css/conversation.css");
 
