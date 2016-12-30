@@ -13,6 +13,7 @@
     "socket.io": "^1.7.2"
   },
   "devDependencies": {
-    "csslint": "^1.0.5"
+    "csslint": "^1.0.5",
+    "webpack": "^1.14.0"
   }
 }
