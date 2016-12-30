@@ -123,3 +123,5 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+# Webpack bundle
+webclient/bundle.js
